@@ -32,3 +32,4 @@ C:\Users\Lenovo\source\repos\database2\database2\obj\Debug\netcoreapp2.2\databas
 C:\Users\Lenovo\source\repos\database2\database2\obj\Debug\netcoreapp2.2\database2.csproj.CopyComplete
 C:\Users\Lenovo\source\repos\database2\database2\obj\Debug\netcoreapp2.2\Razor\Views\Book\Index.g.cshtml.cs
 C:\Users\Lenovo\source\repos\database2\database2\obj\Debug\netcoreapp2.2\Razor\Views\Book\AddBook.g.cshtml.cs
+C:\Users\Lenovo\source\repos\database2\database2\obj\Debug\netcoreapp2.2\Razor\Views\Book\BookEdit.g.cshtml.cs

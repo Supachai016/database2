@@ -1,6 +1,7 @@
 ﻿@model List<Book>
+@using database2.Extension
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "รายการหนังสือ";
 }
 
 <h1>รายการหนังสือ</h1>
@@ -19,6 +20,10 @@
         <th>
             @Html.DisplayNameFor(m => m[0].Price)
         </th>
+        <th>
+            @Html.DisplayNameFor(m => m[0].BookType)
+        </th>
+
         @if (User.Identity.IsAuthenticated)
         {
             <th>
@@ -28,24 +33,30 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(m => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item.Price)
-            </td>
-            @if (User.Identity.IsAuthenticated)
+<tr>
+    <td>
+        @Html.DisplayFor(m => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(m => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(m => item.Price)
+    </td>
+    <td>
+        @item.BookType.GetDisplayName()
+    </td>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+    {
+        <td>
+            <a asp-controller="Book" asp-action="BookEdit" asp-route-Id="@item.Id">แก้ไข</a>
+            @if (User.IsInRole("Administrator"))
             {
-                <td>
-
-                    <a asp-controller="Book" asp-action="BookEdit" asp-route-Id="@item.Id">แก้ไข</a>
-                    <a asp-controller="Book" asp-action="BookDelete" asp-route-Id="@item.Id">ลบทิ้ง</a>
-                </td>
+            <a asp-controller="Book" asp-action="BookDelete" asp-route-Id="@item.Id">ลบทิ้ง</a>
             }
-        </tr>
+        </td>
+            
+    }
+</tr>
     }
 </table>
